@@ -26,6 +26,7 @@ inputBtn.addEventListener("click", function() {
 })
 
 
+// Double Click == dblclick in addEventListener
 deleteBtn.addEventListener("click", function() {
     localStorage.clear();
     myLeads = [];
