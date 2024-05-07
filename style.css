@@ -18,15 +18,21 @@ body {
     border: 1px solid #5f9341;
 }  
 
-#input-btn {
+button {
     background-color: #5f9341;
     color: #fff;
-    font-weight: bold;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-    margin: 5px auto 20px auto;
+    margin: 10px auto 20px auto;
+}
+
+#delete-btn {
+    background: #fff;
+    color: #5f9341;
+    border: 1px solid #5f9341;
 }
 
 ul {

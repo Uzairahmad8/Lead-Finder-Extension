@@ -1,11 +1,12 @@
 let myLeads = [];
 const inputBtn = document.getElementById("input-btn");
 let inputEl = document.getElementById("input-el");
-let ul_list = document.getElementById("unOrderedList");
-let paragraph = document.createElement("p");
+const deleteBtn = document.getElementById("delete-btn");
+const ul_list = document.getElementById("unOrderedList");
+const paragraph = document.createElement("p");
 
 
-let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 
 // if there is any data in localStorage then call render();
 if ( leadsFromLocalStorage ) {
@@ -23,6 +24,14 @@ inputBtn.addEventListener("click", function() {
     }
    
 })
+
+
+deleteBtn.addEventListener("click", function() {
+    localStorage.clear();
+    myLeads = [];
+    renderLead();
+})
+
 
 function renderLead() {
     let listItems = "";
