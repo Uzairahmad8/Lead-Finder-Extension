@@ -4,16 +4,22 @@ let inputEl = document.getElementById("input-el");
 let ul_list = document.getElementById("unOrderedList");
 let paragraph = document.createElement("p");
 
+
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+
+// if there is any data in localStorage then call render();
+if ( leadsFromLocalStorage ) {
+    myLeads = [...leadsFromLocalStorage];
+    renderLead();
+}
+
 inputBtn.addEventListener("click", function() {
     if ( inputEl.value != "" && inputEl.value != " ") {
         myLeads.push(inputEl.value);
         inputEl.value = "";
         paragraph.textContent = ""; 
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
         renderLead();
-        
-    } else {
-        paragraph.innerHTML += "Please Entry Something <br>";
-        document.body.appendChild(paragraph);
     }
    
 })
