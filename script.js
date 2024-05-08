@@ -2,6 +2,7 @@ let myLeads = [];
 const inputBtn = document.getElementById("input-btn");
 let inputEl = document.getElementById("input-el");
 const deleteBtn = document.getElementById("delete-btn");
+const tabBtn = document.getElementById("tab-btn");
 const ul_list = document.getElementById("unOrderedList");
 const paragraph = document.createElement("p");
 
@@ -54,4 +55,22 @@ deleteBtn.addEventListener("click", function() {
     localStorage.clear();
     myLeads = [];
     render(myLeads);
+    inputEl.value = ""
 })
+
+
+tabBtn.addEventListener("click", function () {
+
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        // since only one tab should be active and in the current window at once
+        // the return variable should only have one entry
+        console.log(tabs);
+        let activeTab = tabs[0];
+        let activeTabId = activeTab.id; // or do whatever you need
+    });
+
+    myLeads.push(tabs[0].url);
+    localStorage.setItem("myLeads", JSON.stringify(myLeads));
+    render(myLeads)
+}
+)
